@@ -1,0 +1,8 @@
+:root {
+    --primary-color: #0b8185;
+    --secondary-color: #1f5f61;
+
+    --primary-button-color: #59b390;
+    --warn-button-color: #f0ddaa;
+    --alert-button-color: #e32d40;
+}
