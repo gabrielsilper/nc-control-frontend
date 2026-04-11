@@ -1,196 +1,124 @@
-/* RESET E BASE */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    min-height: 100vh;
+:host {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem;
+    min-height: 100vh;
+    background: #0b8185;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    margin: 0;
+    padding: 1rem;
 }
 
-/* CONTAINER PRINCIPAL */
 .login-container {
     background: white;
-    border-radius: 1rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    max-width: 450px;
+    width: 420px;
+    max-width: 100%;
+    border-radius: 16px;
     overflow: hidden;
 }
 
-/* HEADER DA MARCA */
 .brand-header {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    padding: 2rem;
+    background: #1f5f61;
+    padding: 2rem 1.5rem;
     text-align: center;
 }
 
 .brand-header h1 {
-    font-size: 2rem;
     color: white;
-    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    margin: 0;
 }
 
 .brand-header h1 span {
-    color: var(--primary-button-color);
+    color: #59b390;
 }
 
 .brand-header p {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255,255,255,0.85);
     font-size: 0.85rem;
+    margin-top: 0.3rem;
 }
 
-/* CONTEÚDO DO FORMULÁRIO */
 .form-content {
     padding: 2rem;
 }
 
 .welcome-message {
-    margin-bottom: 1.5rem;
     text-align: center;
+    margin-bottom: 1.8rem;
 }
 
 .welcome-message h2 {
-    color: var(--secondary-color);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    color: #1f5f61;
+    font-size: 1.4rem;
+    margin: 0 0 0.3rem;
 }
 
 .welcome-message p {
-    color: #666;
+    color: #0b8185;
+    font-weight: 500;
     font-size: 0.85rem;
 }
 
-/* GRUPOS DE INPUT */
 .input-group {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.2rem;
 }
 
 .input-group label {
     display: block;
     font-size: 0.85rem;
     font-weight: 600;
-    color: #333;
-    margin-bottom: 0.5rem;
+    color: #1f5f61;
+    margin-bottom: 0.4rem;
 }
 
 .input-icon input {
     width: 100%;
     padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     font-size: 0.95rem;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-    transition: all 0.3s ease;
     outline: none;
+    box-sizing: border-box;
 }
 
 .input-icon input:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(11, 129, 133, 0.1);
+    border-color: #0b8185;
 }
 
-/* LINHA DE OPÇÕES */
 .options-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem 0 1.5rem 0;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.85rem;
 }
 
 .checkbox-label {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.85rem;
-    color: #555;
+    color: #1f5f61;
     cursor: pointer;
-}
-
-.checkbox-label input {
-    width: 1rem;
-    height: 1rem;
-    cursor: pointer;
-    accent-color: var(--primary-color);
 }
 
 .forgot-link {
-    color: var(--primary-color);
+    color: #0b8185;
     text-decoration: none;
-    font-size: 0.85rem;
-    transition: color 0.3s ease;
 }
 
-.forgot-link:hover {
-    color: var(--secondary-color);
-    text-decoration: underline;
-}
-
-/* BOTÃO DE LOGIN */
 .btn-login {
-    background: var(--primary-button-color);
-    border: none;
+    background: #59b390;
     width: 100%;
-    padding: 0.85rem;
-    border-radius: 0.5rem;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: bold;
     color: white;
     cursor: pointer;
-    transition: all 0.3s ease;
 }
 
 .btn-login:hover {
-    background: var(--primary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(11, 129, 133, 0.3);
-}
-
-.btn-login:active {
-    transform: translateY(0);
-}
-
-/* RODAPÉ DEMO */
-.demo-note {
-    background: #f8f9fa;
-    border-top: 1px solid #eee;
-    padding: 1rem;
-    text-align: center;
-}
-
-.demo-note p {
-    color: #888;
-    font-size: 0.75rem;
-}
-
-/* RESPONSIVIDADE */
-@media (max-width: 480px) {
-    .form-content {
-        padding: 1.5rem;
-    }
-    
-    .brand-header {
-        padding: 1.5rem;
-    }
-    
-    .brand-header h1 {
-        font-size: 1.5rem;
-    }
-    
-    .welcome-message h2 {
-        font-size: 1.25rem;
-    }
-    
-    .options-row {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+    background: #0b8185;
 }
