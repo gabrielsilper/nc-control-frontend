@@ -1,1 +1,52 @@
-<p>login works!</p>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NC CONTROL - Login | Sistema de Não Conformidade</title>
+</head>
+<body>
+    <div class="login-container">
+        <div class="brand-header">
+            <h1>NC <span>CONTROL</span></h1>
+            <p>Gestão de Não Conformidades | ISO 9001</p>
+        </div>
+        
+        <div class="form-content">
+            <div class="welcome-message">
+                <h2>Acessar plataforma</h2>
+                <p>Insira suas credenciais para gerenciar NCs</p>
+            </div>
+
+            <form id="loginForm" action="/api/login" method="POST">
+                <div class="input-group">
+                    <label for="email">E-mail institucional</label>
+                    <div class="input-icon">
+                        <input type="email" id="email" name="email" placeholder="seunome@email.com" autocomplete="email" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <div class="input-icon">
+                        <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password" required>
+                    </div>
+                </div>
+
+                <div class="options-row">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="rememberCheck" name="remember"> Lembrar-me nesta unidade
+                    </label>
+                    <a href="/recuperar-senha" class="forgot-link">Esqueceu a senha?</a>
+                </div>
+
+                <button type="submit" class="btn-login">Entrar no sistema</button>
+            </form>
+        </div>
+        
+        <div class="demo-note">
+            <p>Sistema de Gestão de Não Conformidades - NC CONTROL</p>
+        </div>
+    </div>
+</body>
+</html>
