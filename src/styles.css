@@ -9,9 +9,9 @@
     box-sizing: border-box;
     text-decoration: none;
     outline: none;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 body {
     background-color: var(--body-bg-color);
-    font-family: 'Space Grotesk', sans-serif;
 }

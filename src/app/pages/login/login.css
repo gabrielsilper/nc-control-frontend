@@ -8,10 +8,40 @@
 .login-wrapper {
     background: #FFFFFF;
     border: 3px solid var(--primary-border-color);
-    padding: 48px;
+    padding: 48px 48px 64px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .login-header {
     padding: 0px 16px;
-    border-left: 3px solid var(--secondary-color);
+    border-left: 4px solid var(--secondary-color);
+}
+
+.login-header h1 {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+
+    letter-spacing: -1.5px;
+    line-height: 36px;
+}
+
+.login-header p {
+    font-size: 10px;
+    color: var(--secondary-border-color);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 350px;
+}
+
+.login-button span {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
 }
