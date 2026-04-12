@@ -1,0 +1,22 @@
+.register-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.register-wrapper {
+    background: #FFFFFF;
+    border: 3px solid var(--primary-border-color);
+    padding: 48px 48px 64px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 675px;
+}

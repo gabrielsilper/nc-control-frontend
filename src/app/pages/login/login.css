@@ -39,9 +39,3 @@
     gap: 24px;
     width: 350px;
 }
-
-.login-button span {
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-}
