@@ -1,3 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./styles/variables.css";
+@import "./styles/buttons.css";
+@import "./styles/form-input.css";
 
-@import 'tailwindcss';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+    background-color: var(--body-bg-color);
+}
