@@ -1,19 +1,30 @@
 <div class="login-page">
-  <div>
-    <form action="#">
-      <div>
-        <label>
-          E-MAIL
-          <input type="text" />
-        </label>
+  <div class="login-wrapper">
+    <header class="login-header">
+      <h1>NC CONTROL</h1>
+      <p>ALGUM SUBTITULO OU SLOGAN</p>
+    </header>
+    <form class="login-form">
+      <div class="form-group">
+        <label for="email">E-MAIL</label>
+        <div class="input-wrapper">
+          <span class="material-symbols-outlined">email</span>
+          <input id="email" type="text" placeholder="E-MAIL" />
+        </div>
       </div>
-      <div>
-        <label>
-          SENHA
-          <input type="password" />
-        </label>
+
+      <div class="form-group">
+        <label for="password">PASSWORD</label>
+        <div class="input-wrapper">
+          <span class="material-symbols-outlined">key</span>
+          <input id="password" type="password" placeholder="•••••••••" />
+        </div>
       </div>
-      <button>Login -></button>
+
+      <button type="submit" class="login-button primary-button">
+        LOGIN
+        <span class="material-symbols-outlined">login</span>
+      </button>
     </form>
   </div>
 </div>

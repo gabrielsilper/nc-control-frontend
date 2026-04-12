@@ -1,0 +1,14 @@
+.primary-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 300px;
+    height: 48px;
+
+    font-weight: 600;
+
+    background-color: var(--primary-button-color);
+    color: var(--primary-text-color);
+    gap: 8px;
+}

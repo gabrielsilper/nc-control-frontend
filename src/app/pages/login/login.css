@@ -1,0 +1,17 @@
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-wrapper {
+    background: #FFFFFF;
+    border: 3px solid var(--primary-border-color);
+    padding: 48px;
+}
+
+.login-header {
+    padding: 0px 16px;
+    border-left: 3px solid var(--secondary-color);
+}
