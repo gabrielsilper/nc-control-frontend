@@ -26,8 +26,7 @@ export class Login {
       const credentials = this.loginForm.value as LoginRequest;
 
       this.authService.login(credentials).subscribe({
-        next: (response) => {
-          console.log(response)
+        next: () => {
           this.router.navigate(['/dashboard']);
         },
         error: (err) => {
