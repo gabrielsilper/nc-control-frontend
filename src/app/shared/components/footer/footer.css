@@ -4,6 +4,6 @@
     color: var(--secondary-border-color);
     border-top: 2px solid var(--secondary-border-color);
     height: 5vh;
-    padding: 10px;
+    align-items: center;
 }
 
