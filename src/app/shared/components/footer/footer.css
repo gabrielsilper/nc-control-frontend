@@ -1,0 +1,9 @@
+.footer-wrapper p{
+    display: flex;
+    justify-content: center;
+    color: var(--secondary-border-color);
+    border-top: 2px solid var(--secondary-border-color);
+    height: 5vh;
+    align-items: center;
+}
+
