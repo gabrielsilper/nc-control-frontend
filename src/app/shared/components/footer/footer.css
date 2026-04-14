@@ -3,7 +3,9 @@
     justify-content: center;
     color: var(--secondary-border-color);
     border-top: 2px solid var(--secondary-border-color);
-    height: 5vh;
+    height: 3vh;
+    font-size: 12px;
+    font-weight: 500;
     align-items: center;
 }
 

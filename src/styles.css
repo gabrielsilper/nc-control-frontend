@@ -2,6 +2,7 @@
 @import "./styles/variables.css";
 @import "./styles/buttons.css";
 @import "./styles/form-input.css";
+@import "./styles/pages.css";
 
 * {
     margin: 0;

@@ -1,0 +1,15 @@
+.page-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 97vh;
+}
+
+.page-center-card {
+    background: #FFFFFF;
+    border: 3px solid var(--primary-border-color);
+    padding: 48px 48px 64px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
