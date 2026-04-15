@@ -3,10 +3,10 @@
     <h1>DASHBOARD</h1>
   </div>
   <div class="dashboard-cards-container">
-    <info-card></info-card>
-    <info-card></info-card>
-    <info-card></info-card>
-    <info-card></info-card>
+    <info-card label="TOTAL NCS ABERTAS" [value]="42", icon="list_alt"></info-card>
+    <info-card label="GRAVIDADE CRÍTICA/ALTA" [value]="12", icon="warning"></info-card>
+    <info-card label="PRAZO VENCIDO" [value]="8", icon="schedule"></info-card>
+    <info-card label="ENCERRADAS NO MÊS" [value]="42", icon="task_alt"></info-card>
   </div>
   <div class="dashboard-content">
     <div class="dashboard-nc-list"></div>

@@ -8,19 +8,22 @@
 
 .dashboard-cards-container {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
+    gap: 24px;
+}
+
+.dashboard-cards-container info-card {
+    flex: 1;
 }
 
 .dashboard-title h1 {
-  position: relative;
+    position: relative;
 }
 
 .dashboard-title h1::before {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 4px;
-  background: var(--secondary-color);
-  margin-bottom: 8px;
+    content: '';
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: var(--secondary-color);
+    margin-bottom: 8px;
 }
