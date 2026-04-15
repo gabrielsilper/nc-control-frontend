@@ -7,19 +7,19 @@
       </div>
     </header>
 
-    <form class="register-form">
+    <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onRegister()">
       <div class="form-row">
         <div class="form-group">
           <label for="nome">NOME</label>
           <div class="input-wrapper">
-            <input id="nome" type="text" placeholder="JOAO SILVA GOMES" />
+            <input id="nome" type="text" placeholder="JOAO SILVA GOMES" formControlName="name" />
           </div>
         </div>
 
         <div class="form-group">
           <label for="email">E-MAIL</label>
           <div class="input-wrapper">
-            <input id="email" type="text" placeholder="EMAIL@EXEMPLO.COM" />
+            <input id="email" type="email" placeholder="EMAIL@EXEMPLO.COM" formControlName="email" />
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@
       <div class="form-group">
         <label for="perfil">SELEÇÃO DE PERFIL</label>
         <div class="input-wrapper">
-          <select id="perfil">
+          <select id="perfil" formControlName="profile">
             <option value="0">00 - OPERADOR</option>
             <option value="1">01 - RESPONSÁVEL</option>
             <option value="2">02 - GESTOR</option>
@@ -39,11 +39,18 @@
       <div class="form-group">
         <label for="senha">SENHA</label>
         <div class="input-wrapper">
-          <input id="senha" type="password" placeholder="•••••••••" />
+          <input id="senha" type="password" placeholder="•••••••••" formControlName="password" />
         </div>
       </div>
 
-      <button type="submit" class="register-button primary-button">
+      <div class="form-group">
+        <label for="confirmar-senha">CONFIRMAR SENHA</label>
+        <div class="input-wrapper">
+          <input id="confirmar-senha" type="password" placeholder="•••••••••" formControlName="passwordConfirm" />
+        </div>
+      </div>
+
+      <button type="submit" class="register-button primary-button" [disabled]="registerForm.invalid || isSubmitting">
         CADASTRAR
         <span class="material-symbols-outlined">person_add</span>
       </button>
