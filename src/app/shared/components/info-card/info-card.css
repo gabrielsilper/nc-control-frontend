@@ -1,0 +1,26 @@
+.info-card-wrapper {
+    width: 222px;
+    height: 128px;
+    border: 3px solid var(--primary-border-color);
+}
+
+.info-card-container {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+}
+
+.info-card-data {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+}
+
+.info-card-number {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.info-card-border-common {
+    border-top: 6px solid #bdc9c9;
+}
