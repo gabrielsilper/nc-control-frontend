@@ -27,15 +27,29 @@
             <tr>
               <td>NC-1234-123456</td>
               <td>Falha na vedação do compartimento alfa-04.</td>
-              <td><span>CRÍTICA</span></td>
+              <td><bagde-component [severity]="3"></bagde-component></td>
               <td><span>EM ANDAMENTO</span></td>
             </tr>
 
             <tr>
               <td>NC-1234-123456</td>
               <td>Desvio de temperatura no processo de têmpera.</td>
-              <td><span>ALTA</span></td>
+              <td><bagde-component></bagde-component></td>
               <td><span>ABERTA</span></td>
+            </tr>
+
+            <tr>
+              <td>NC-1234-123456</td>
+              <td>Falha na vedação do compartimento alfa-04.</td>
+              <td><bagde-component [severity]="1"></bagde-component></td>
+              <td><span>EM ANDAMENTO</span></td>
+            </tr>
+
+            <tr>
+              <td>NC-1234-123456</td>
+              <td>Falha na vedação do compartimento alfa-04.</td>
+              <td><bagde-component [severity]="2"></bagde-component></td>
+              <td><span>EM ANDAMENTO</span></td>
             </tr>
           </tbody>
         </table>

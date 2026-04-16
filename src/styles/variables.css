@@ -4,8 +4,12 @@
     --tertiary-color: #1f5f61;
 
     --primary-button-color: #59b390;
-    --warn-button-color: #f0ddaa;
-    --alert-button-color: #e32d40;
+
+
+    --alert-color: #ba1a1a;
+    --warn-color: #d05f19;
+    --medium-color: #ebe53d;
+    --common-color: #6e7979;
 
     --primary-text-color: #191c1c;
     
