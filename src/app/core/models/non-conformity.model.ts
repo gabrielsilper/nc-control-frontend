@@ -4,3 +4,11 @@ export enum SeverityNc {
   ALTA,
   CRITICA,
 }
+
+export enum TypeNc {
+  PRODUTO,
+  PROCESSO,
+  MATERIAL,
+  SEGURANÇA,
+  OUTRO,
+}
