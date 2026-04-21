@@ -48,7 +48,7 @@ export class Register {
     this.userService.create(createUserPayload).subscribe({
       next: () => {
         this.isSubmitting = false;
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/app/dashboard']);
       },
       error: (err) => {
         this.isSubmitting = false;
