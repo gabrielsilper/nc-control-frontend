@@ -1,0 +1,101 @@
+<div class="non-conformity-page page-layout">
+  <div class="register-wrapper page-center-card">
+    <header class="register-header">
+      <div class="title-group">
+        <span class="box-point"></span>
+        <h1>CRIAR NÃO CONFORMIDADE</h1>
+      </div>
+    </header>
+
+    <form class="register-form">
+      <!-- Linha 1: NÚMERO + LINHA DE PROCESSO -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="numero">NÚMERO</label>
+          <div class="input-wrapper">
+            <input type="text" id="numero" placeholder="NC-0000-000000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="processLine">LINHA DE PROCESSO</label>
+          <div class="input-wrapper">
+            <input type="text" id="processLine" placeholder="LINHA X">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="title">TÍTULO</label>
+        <div class="input-wrapper">
+          <input type="text" id="title" placeholder="Digite o título da não conformidade">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">DESCRIÇÃO</label>
+        <div class="input-wrapper">
+          <input id="description" rows="3" placeholder="Descreva detalhadamente a não conformidade">
+        </div>
+      </div>
+
+      <!-- Linha 2: TIPO + SEVERIDADE -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="type">TIPO</label>
+          <div class="input-wrapper select-wrapper">
+            <select id="type">
+              <option value="PRODUTO">PRODUTO</option>
+              <option value="PROCESSO">PROCESSO</option>
+              <option value="MATERIAL">MATERIAL</option>
+              <option value="SEGURANÇA">SEGURANÇA</option>
+              <option value="OUTRO">OUTRO</option>
+            </select>
+            <span class="material-symbols-outlined select-icon">expand_more</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="severity">SEVERIDADE</label>
+          <div class="input-wrapper select-wrapper">
+            <select id="severity">
+              <option value="BAIXA">BAIXA</option>
+              <option value="MÉDIA">MÉDIA</option>
+              <option value="ALTA">ALTA</option>
+              <option value="CRÍTICA">CRÍTICA</option>
+            </select>
+            <span class="material-symbols-outlined select-icon">expand_more</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Linha 3: DEPARTAMENTO + ASSOCIADO A -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="department">DEPARTAMENTO</label>
+          <div class="input-wrapper">
+            <input type="text" id="department" placeholder="Ex: Qualidade, Produção, Logística">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="assignedTo">ASSOCIADO A (UUID)</label>
+          <div class="input-wrapper">
+            <input type="text" id="assignedTo" placeholder="Opcional - UUID do responsável">
+          </div>
+        </div>
+      </div>
+
+      <!-- CAUSA RAIZ (linha inteira, opcional) -->
+      <div class="form-group">
+        <label for="rootCause">CAUSA RAIZ</label>
+        <div class="input-wrapper">
+          <input type="text" id="rootCause" placeholder="Opcional - Investigação inicial">
+        </div>
+      </div>
+
+      <!-- BOTÃO -->
+      <button type="submit" class="register-button primary-button">
+        CADASTRAR NÃO CONFORMIDADE
+        <span class="material-symbols-outlined">add</span>
+      </button>
+    </form>
+  </div>
+</div>
