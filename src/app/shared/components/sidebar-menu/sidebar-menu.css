@@ -1,0 +1,5 @@
+.sidebar-menu-container {
+    flex: 0 0 auto;
+    background-color: var(--secondary-color);
+    min-height: 97vh;
+}

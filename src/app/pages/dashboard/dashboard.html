@@ -3,13 +3,93 @@
     <h1>DASHBOARD</h1>
   </div>
   <div class="dashboard-cards-container">
-    <info-card label="TOTAL NCS ABERTAS" [value]="42", icon="list_alt"></info-card>
-    <info-card label="GRAVIDADE CRÍTICA/ALTA" [value]="12", icon="warning"></info-card>
-    <info-card label="PRAZO VENCIDO" [value]="8", icon="schedule"></info-card>
-    <info-card label="ENCERRADAS NO MÊS" [value]="42", icon="task_alt"></info-card>
+    <info-card label="TOTAL NCS ABERTAS" [value]="42" type="common" icon="list_alt"></info-card>
+    <info-card label="GRAVIDADE CRÍTICA/ALTA" [value]="12" type="alert" icon="warning"></info-card>
+    <info-card label="PRAZO VENCIDO" [value]="8" type="medium" icon="schedule"></info-card>
+    <info-card label="ENCERRADAS NO MÊS" [value]="35" type="success" icon="task_alt"></info-card>
   </div>
   <div class="dashboard-content">
-    <div class="dashboard-nc-list"></div>
-    <div class="dashboard-nc-type-ranking"></div>
+    <div class="dashboard-nc-list">
+      <div class="dashboard-table-container">
+        <div class="dashboard-table-title">
+          <span>NCS RECENTES</span>
+        </div>
+        <table class="dashboard-table">
+          <thead>
+            <tr>
+              <th>NUM NC</th>
+              <th>TÍTULO</th>
+              <th>GRAVIDADE</th>
+              <th>STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>NC-1234-123456</td>
+              <td>Falha na vedação do compartimento alfa-04.</td>
+              <td><bagde-component [severity]="3"></bagde-component></td>
+              <td><span>EM ANDAMENTO</span></td>
+            </tr>
+
+            <tr>
+              <td>NC-1234-123456</td>
+              <td>Desvio de temperatura no processo de têmpera.</td>
+              <td><bagde-component></bagde-component></td>
+              <td><span>ABERTA</span></td>
+            </tr>
+
+            <tr>
+              <td>NC-1234-123456</td>
+              <td>Falha na vedação do compartimento alfa-04.</td>
+              <td><bagde-component [severity]="1"></bagde-component></td>
+              <td><span>EM ANDAMENTO</span></td>
+            </tr>
+
+            <tr>
+              <td>NC-1234-123456</td>
+              <td>Falha na vedação do compartimento alfa-04.</td>
+              <td><bagde-component [severity]="2"></bagde-component></td>
+              <td><span>EM ANDAMENTO</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="dashboard-ranking-container">
+      <div class="dashboard-table-title">
+        <span>RANKING DE DESVIOS</span>
+      </div>
+
+      <div class="dashboard-ranking">
+        <div class="ranking-subtitle">TOP 3 OCORRÊNCIAS</div>
+
+        <div class="ranking-item">
+          <div class="ranking-position rank-1">1</div>
+
+          <div class="ranking-info">
+            <span class="ranking-title">{{ typeNc[0] }}</span>
+            <span class="ranking-count">32 OCORRÊNCIAS</span>
+          </div>
+        </div>
+
+        <div class="ranking-item">
+          <div class="ranking-position rank-2">2</div>
+
+          <div class="ranking-info">
+            <span class="ranking-title">{{ typeNc[1] }}</span>
+            <span class="ranking-count">15 OCORRÊNCIAS</span>
+          </div>
+        </div>
+
+        <div class="ranking-item">
+          <div class="ranking-position rank-3">3</div>
+
+          <div class="ranking-info">
+            <span class="ranking-title">{{ typeNc[2] }}</span>
+            <span class="ranking-count">7 OCORRÊNCIAS</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

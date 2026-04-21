@@ -1,0 +1,27 @@
+.bagde-container {
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    width: 50%;
+    border: 3px solid var(--primary-border-color);
+}
+
+.bagde-alert {
+    color: #FFFFFF;
+    background-color: var(--alert-color);
+}
+
+.bagde-warn {
+    color: #FFFFFF;
+    background-color: var(--warn-color);
+}
+
+.bagde-medium {
+    color: var(--primary-text-color);
+    background-color: var(--medium-color);
+}
+
+.bagde-common {
+    color: #FFFFFF;
+    background-color: var(--common-color);
+}

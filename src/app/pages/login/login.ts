@@ -27,7 +27,7 @@ export class Login {
 
       this.authService.login(credentials).subscribe({
         next: () => {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/app/dashboard']);
         },
         error: (err) => {
           console.error('Erro no componente de login', err);

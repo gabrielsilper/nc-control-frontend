@@ -1,6 +1,6 @@
 .info-card-wrapper {
     width: 100%;
-    height: 128px;
+    min-height: 128px;
     border: 3px solid var(--primary-border-color);
 }
 
@@ -23,6 +23,22 @@
     font-weight: 700;
 }
 
-.info-card-border-common {
-    border-top: 6px solid #bdc9c9;
+.info-card-succes-border {
+    border-top: 6px solid var(--tertiary-color);
+}
+
+.info-card-alert-border {
+    border-top: 6px solid var(--alert-color);
+}
+
+.info-card-warn-border {
+    border-top: 6px solid var(--warn-color);
+}
+
+.info-card-medium-border {
+    border-top: 6px solid var(--medium-color);
+}
+
+.info-card-common-border {
+    border-top: 6px solid var(--common-color);
 }
