@@ -5,6 +5,9 @@ import { NotFound } from './pages/not-found/not-found';
 import { Dashboard } from './pages/dashboard/dashboard';
 import { CreateNonConformity } from './pages/create-non-conformity/create-non-conformity';
 import { MainLayout } from './layouts/main-layout/main-layout';
+import { NonConformities } from './pages/non-conformities/non-conformities';
+import { Users } from './pages/users/users';
+import { Profile } from './pages/profile/profile';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'app/dashboard', pathMatch: 'full' },
@@ -15,8 +18,11 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: Dashboard },
-      { path: 'register', component: Register },
+      { path: 'users', component: Users},
+      { path: 'users/register', component: Register },
+      { path: 'ncs', component: NonConformities },
       { path: 'ncs/new', component: CreateNonConformity},
+      { path: 'profile', component: Profile},
     ],
   },
   { path: '**', component: NotFound },

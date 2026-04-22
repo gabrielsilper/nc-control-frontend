@@ -1,5 +1,42 @@
 .sidebar-menu-container {
     flex: 0 0 auto;
     background-color: var(--secondary-color);
-    min-height: 97vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.sidebar-menu-logo-container {
+    padding: 20px;
+    color: #ffffff;
+}
+
+.sidebar-menu-logo-container h1 {
+    font-size: 26px;
+}
+
+.sidebar-menu-logo-container p {
+    font-size: 12px;
+}
+
+.sidebar-menu-links {
+    color: #ffffff;
+    padding: 12px 20px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.sidebar-menu-links span:nth-child(2) {
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.options-container {
+    margin-top: auto;
+    padding: 16px 0 24px 0;
 }

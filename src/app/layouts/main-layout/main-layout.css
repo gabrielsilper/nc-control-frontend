@@ -1,6 +1,6 @@
 .main-layout {
     display: flex;
-    min-height: 97vh;
+    min-height: 100vh;
 }
 
 .main-content {
