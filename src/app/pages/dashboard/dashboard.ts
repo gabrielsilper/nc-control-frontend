@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { InfoCard } from '../../shared/components/info-card/info-card';
 import { Bagde } from '../../shared/components/bagde/bagde';
 import {
@@ -19,16 +19,14 @@ import { forkJoin } from 'rxjs';
 })
 export class Dashboard implements OnInit {
   private readonly nonConformityService = inject(NonConformityService);
-  typeNc = TypeNc;
-  statusNc = StatusNc;
+  private readonly cdr = inject(ChangeDetectorRef);
   loading = false;
   dashboardCounts!: DashboardCountsResponse;
-  dashboardRanking!: DashboardRankingResponse;
+  dashboardRanking: DashboardRankingResponse[] = [];
   nonConformities: NonConformityResponse[] = [];
 
   ngOnInit() {
     this.loadDashboardData();
-    console.log(this.nonConformities);
   }
 
   loadDashboardData() {
@@ -36,21 +34,23 @@ export class Dashboard implements OnInit {
     forkJoin({
       counts: this.nonConformityService.getDashboardCounts(),
       ranking: this.nonConformityService.getDashboardRanking(),
-      nonConformitiesData: this.nonConformityService.getNonConformities({}),
+      nonConformitiesData: this.nonConformityService.getNonConformities({ order: 'DESC' }),
     }).subscribe({
       next: (res) => {
         this.dashboardCounts = res.counts;
         this.dashboardRanking = res.ranking;
-        console.log(res.nonConformitiesData.items);
-        
         this.nonConformities = res.nonConformitiesData.items;
-
         this.loading = false;
+        this.cdr.detectChanges();
       },
       error: (err) => {
         this.loading = false;
         console.error('Ocorreu um erro!', err);
       },
     });
+  }
+
+  getStatusLabel(status: StatusNc): string {
+    return StatusNc[status];
   }
 }

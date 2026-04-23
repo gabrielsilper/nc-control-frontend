@@ -2,12 +2,14 @@
   <div class="dashboard-title">
     <h1>DASHBOARD</h1>
   </div>
-  <div class="dashboard-cards-container">
-    <info-card label="TOTAL NCS ABERTAS" [value]="42" type="common" icon="list_alt"></info-card>
-    <info-card label="GRAVIDADE CRÍTICA/ALTA" [value]="12" type="alert" icon="warning"></info-card>
-    <info-card label="PRAZO VENCIDO" [value]="8" type="medium" icon="schedule"></info-card>
-    <info-card label="ENCERRADAS NO MÊS" [value]="35" type="success" icon="task_alt"></info-card>
-  </div>
+  @if (dashboardCounts) {
+    <div class="dashboard-cards-container">
+      <info-card label="TOTAL NCS ABERTAS" [value]="dashboardCounts.openNonConformities" type="common" icon="list_alt"></info-card>
+      <info-card label="GRAVIDADE CRÍTICA/ALTA" [value]="dashboardCounts.warningNonConformities" type="alert" icon="warning"></info-card>
+      <info-card label="PRAZO VENCIDO" [value]="dashboardCounts.expiredNonConformities" type="medium" icon="schedule"></info-card>
+      <info-card label="ENCERRADAS NO MÊS" [value]="dashboardCounts.closedNonConformities" type="success" icon="task_alt"></info-card>
+    </div>
+  }
   <div class="dashboard-content">
     <div class="dashboard-nc-list">
       <div class="dashboard-table-container">
@@ -24,33 +26,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>NC-1234-123456</td>
-              <td>Falha na vedação do compartimento alfa-04.</td>
-              <td><bagde-component [severity]="3"></bagde-component></td>
-              <td><span>EM ANDAMENTO</span></td>
-            </tr>
-
-            <tr>
-              <td>NC-1234-123456</td>
-              <td>Desvio de temperatura no processo de têmpera.</td>
-              <td><bagde-component></bagde-component></td>
-              <td><span>ABERTA</span></td>
-            </tr>
-
-            <tr>
-              <td>NC-1234-123456</td>
-              <td>Falha na vedação do compartimento alfa-04.</td>
-              <td><bagde-component [severity]="1"></bagde-component></td>
-              <td><span>EM ANDAMENTO</span></td>
-            </tr>
-
-            <tr>
-              <td>NC-1234-123456</td>
-              <td>Falha na vedação do compartimento alfa-04.</td>
-              <td><bagde-component [severity]="2"></bagde-component></td>
-              <td><span>EM ANDAMENTO</span></td>
-            </tr>
+            @for (nc of nonConformities; track nc.id) {
+              <tr>
+                <td>{{ nc.number }}</td>
+                <td>{{ nc.title }}</td>
+                <td><bagde-component [severity]="nc.severity"></bagde-component></td>
+                <td><span>{{ getStatusLabel(nc.status) }}</span></td>
+              </tr>
+            }
           </tbody>
         </table>
       </div>
@@ -63,32 +46,16 @@
       <div class="dashboard-ranking">
         <div class="ranking-subtitle">TOP 3 OCORRÊNCIAS</div>
 
-        <div class="ranking-item">
-          <div class="ranking-position rank-1">1</div>
+        @for (rank of dashboardRanking; track rank.type; let i = $index) {
+          <div class="ranking-item">
+            <div [class]="'ranking-position rank-' + (i + 1)">{{ i + 1 }}</div>
 
-          <div class="ranking-info">
-            <span class="ranking-title">{{ typeNc[0] }}</span>
-            <span class="ranking-count">32 OCORRÊNCIAS</span>
+            <div class="ranking-info">
+              <span class="ranking-title">{{ rank.name }}</span>
+              <span class="ranking-count">{{ rank.total }} OCORRÊNCIAS</span>
+            </div>
           </div>
-        </div>
-
-        <div class="ranking-item">
-          <div class="ranking-position rank-2">2</div>
-
-          <div class="ranking-info">
-            <span class="ranking-title">{{ typeNc[1] }}</span>
-            <span class="ranking-count">15 OCORRÊNCIAS</span>
-          </div>
-        </div>
-
-        <div class="ranking-item">
-          <div class="ranking-position rank-3">3</div>
-
-          <div class="ranking-info">
-            <span class="ranking-title">{{ typeNc[2] }}</span>
-            <span class="ranking-count">7 OCORRÊNCIAS</span>
-          </div>
-        </div>
+        }
       </div>
     </div>
   </div>

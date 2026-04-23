@@ -22,7 +22,7 @@ export class NonConformityService {
   }
 
   getDashboardRanking() {
-    return this.http.get<DashboardRankingResponse>(`${this.API_URL}/ranking`);
+    return this.http.get<DashboardRankingResponse[]>(`${this.API_URL}/ranking`);
   }
 
   create(payload: NonConformityCreateRequest) {
