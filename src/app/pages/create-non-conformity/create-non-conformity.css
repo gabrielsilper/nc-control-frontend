@@ -1,93 +1,27 @@
-.non-conformity-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 1rem;
-}
-
 .register-wrapper {
-    background: #fff;
-    border: 3px solid var(--primary-border-color);
-    padding: 2rem;
-    max-width: 780px;
-    width: 100%;
-}
-
-.register-header {
-    border-left: 4px solid var(--primary-button-color);
-    padding-left: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.title-group {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.box-point {
-    width: 10px;
-    height: 10px;
-    background: var(--primary-button-color);
-    border-radius: 2px;
-}
-
-.title-group h1 {
-    font-size: 1.4rem;
-    color: var(--secondary-color);
+    width: 780px;
 }
 
 .register-form {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 24px;
 }
 
-.form-row {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+.input-wrapper:has(textarea) {
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-items: flex-start;
 }
 
-.form-group {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-
-.form-group label {
-    font-size: 0.7rem;
-    font-weight: bold;
-    color: var(--secondary-color);
-}
-
-.input-wrapper {
-    border: 1px solid var(--primary-border-color);
-    padding: 0.5rem;
-}
-
-.input-wrapper input,
-.input-wrapper select,
 .input-wrapper textarea {
     width: 100%;
+    resize: vertical;
+    min-height: 72px;
     border: none;
     outline: none;
     background: transparent;
-    font-size: 0.85rem;
+    font-size: 14px;
     font-family: inherit;
-}
-
-.primary-button {
-    background: var(--primary-button-color);
-    border: none;
-    padding: 0.7rem;
-    color: white;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
 }
