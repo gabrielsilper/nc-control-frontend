@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../core/services/auth-service';
 import { Router } from '@angular/router';
 import { LoginRequest } from '../../core/models/auth.model';
 import { emailFormatValidator } from '../../core/validators/custom-validators';
+import { httpErrorMessage } from '../../core/utils/http-error-message';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,8 @@ export class Login {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);
+
+  apiError = signal<string | null>(null);
 
   loginForm = this.fb.group({
     email: ['', [Validators.required, emailFormatValidator()]],
@@ -35,6 +38,7 @@ export class Login {
 
   onLogin() {
     if (this.loginForm.valid) {
+      this.apiError.set(null);
       const credentials = this.loginForm.value as LoginRequest;
 
       this.authService.login(credentials).subscribe({
@@ -42,7 +46,7 @@ export class Login {
           this.router.navigate(['/app/dashboard']);
         },
         error: (err) => {
-          console.error('Erro no componente de login', err);
+          this.apiError.set(httpErrorMessage(err.status));
         },
       });
     }

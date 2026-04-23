@@ -32,6 +32,13 @@
         LOGIN
         <span class="material-symbols-outlined">login</span>
       </button>
+
+      @if (apiError()) {
+        <div class="api-error" role="alert">
+          <span class="material-symbols-outlined">error</span>
+          {{ apiError() }}
+        </div>
+      }
     </form>
   </div>
 </div>

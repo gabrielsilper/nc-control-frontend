@@ -26,10 +26,27 @@
 
 .field-error {
     display: block;
-    color: #ef4444;
+    color: var(--alert-color);
     font-size: 0.72rem;
     margin-top: 4px;
     letter-spacing: 0.02em;
+}
+
+.api-error {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--alert-color);
+    font-size: 0.82rem;
+    background: var(--alert-bg-color);
+    border: 1px solid var(--alert-border-color);
+    border-radius: 6px;
+    padding: 10px 12px;
+}
+
+.api-error .material-symbols-outlined {
+    font-size: 1.1rem;
+    flex-shrink: 0;
 }
 
 button:disabled {
