@@ -8,6 +8,7 @@ import { MainLayout } from './layouts/main-layout/main-layout';
 import { NonConformities } from './pages/non-conformities/non-conformities';
 import { Users } from './pages/users/users';
 import { Profile } from './pages/profile/profile';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'app/dashboard', pathMatch: 'full' },
@@ -15,6 +16,7 @@ export const routes: Routes = [
   {
     path: 'app',
     component: MainLayout,
+    canActivate: [authGuard],
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: Dashboard },

@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import {
@@ -9,7 +9,6 @@ import {
   NonConformityCreateRequest,
   NonConformityResponse,
 } from '../models/non-conformity.model';
-import { AuthService } from './auth-service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,38 +16,21 @@ import { AuthService } from './auth-service';
 export class NonConformityService {
   private readonly http = inject(HttpClient);
   private readonly API_URL = `${environment.apiUrl}/non-conformities`;
-  private readonly authService = inject(AuthService);
-
-  getTokenHeader() {
-    return new HttpHeaders({
-      Authorization: 'Bearer ' + this.authService.getAccessToken()!,
-    });
-  }
 
   getDashboardCounts() {
-    return this.http.get<DashboardCountsResponse>(`${this.API_URL}/counts`, {
-      headers: this.getTokenHeader(),
-    });
+    return this.http.get<DashboardCountsResponse>(`${this.API_URL}/counts`);
   }
 
   getDashboardRanking() {
-    return this.http.get<DashboardRankingResponse>(`${this.API_URL}/ranking`, {
-      headers: this.getTokenHeader(),
-    });
+    return this.http.get<DashboardRankingResponse>(`${this.API_URL}/ranking`);
   }
 
   create(payload: NonConformityCreateRequest) {
-    return this.http.post<NonConformityResponse>(`${this.API_URL}`, payload, {
-      headers: this.getTokenHeader(),
-    });
+    return this.http.post<NonConformityResponse>(`${this.API_URL}`, payload);
   }
 
   getNonConformities(findNonConformitiesQuery: FindNonConformitiesQuery) {
     const params = new HttpParams({ fromObject: findNonConformitiesQuery });
-
-    return this.http.get<NonConformitiesResponse>(`${this.API_URL}`, {
-      params,
-      headers: this.getTokenHeader(),
-    });
+    return this.http.get<NonConformitiesResponse>(`${this.API_URL}`, { params });
   }
 }
