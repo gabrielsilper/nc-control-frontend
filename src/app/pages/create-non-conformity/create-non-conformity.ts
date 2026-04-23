@@ -11,6 +11,8 @@ import {
   typeNcEnumValidator,
   uuidValidator,
 } from '../../core/validators/custom-validators';
+import { NotificationService } from '../../core/services/notification.service';
+import { NotificationType } from '../../core/models/notification.model';
 
 @Component({
   selector: 'app-create-non-conformity',
@@ -22,6 +24,7 @@ export class CreateNonConformity {
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private ncService = inject(NonConformityService);
+  private notificationService = inject(NotificationService);
 
   readonly typeOptions = [
     { value: '0', label: 'PRODUTO' },
@@ -86,11 +89,11 @@ export class CreateNonConformity {
     this.ncService.create(payload).subscribe({
       next: () => {
         this.isSubmitting = false;
-        this.router.navigate(['/app/non-conformities']);
+        this.notificationService.show('Não conformidade cadastrada com sucesso!', NotificationType.Success);
+        this.router.navigate(['/app/ncs']);
       },
-      error: (err) => {
+      error: () => {
         this.isSubmitting = false;
-        console.error('Erro ao criar não conformidade:', err);
       },
     });
   }

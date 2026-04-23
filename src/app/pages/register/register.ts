@@ -11,6 +11,8 @@ import {
   passwordMatchValidator,
   profileEnumValidator,
 } from '../../core/validators/custom-validators';
+import { NotificationService } from '../../core/services/notification.service';
+import { NotificationType } from '../../core/models/notification.model';
 
 @Component({
   selector: 'app-register',
@@ -22,6 +24,7 @@ export class Register {
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private userService = inject(UserService);
+  private notificationService = inject(NotificationService);
 
   registerForm: FormGroup = this.fb.group(
     {
@@ -70,11 +73,11 @@ export class Register {
     this.userService.create(createUserPayload).subscribe({
       next: () => {
         this.isSubmitting = false;
+        this.notificationService.show('Usuário cadastrado com sucesso!', NotificationType.Success);
         this.router.navigate(['/app/dashboard']);
       },
-      error: (err) => {
+      error: () => {
         this.isSubmitting = false;
-        console.error('Erro ao criar usuário:', err);
       },
     });
   }

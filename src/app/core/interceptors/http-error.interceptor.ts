@@ -12,7 +12,7 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req, next) => {
 
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
-      if (!isLoginRoute) {
+      if (!isLoginRoute && error.status !== 401) {
         notificationService.show(httpErrorMessage(error.status));
       }
       return throwError(() => error);
