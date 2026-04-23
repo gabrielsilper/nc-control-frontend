@@ -6,6 +6,8 @@ import {
   DashboardRankingResponse,
   FindNonConformitiesQuery,
   NonConformitiesResponse,
+  NonConformityCreateRequest,
+  NonConformityResponse,
 } from '../models/non-conformity.model';
 import { AuthService } from './auth-service';
 
@@ -31,6 +33,12 @@ export class NonConformityService {
 
   getDashboardRanking() {
     return this.http.get<DashboardRankingResponse>(`${this.API_URL}/ranking`, {
+      headers: this.getTokenHeader(),
+    });
+  }
+
+  create(payload: NonConformityCreateRequest) {
+    return this.http.post<NonConformityResponse>(`${this.API_URL}`, payload, {
       headers: this.getTokenHeader(),
     });
   }

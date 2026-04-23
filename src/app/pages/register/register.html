@@ -14,6 +14,9 @@
           <div class="input-wrapper">
             <input id="nome" type="text" placeholder="JOAO SILVA GOMES" formControlName="name" />
           </div>
+          @if (registerForm.get('name')?.invalid && registerForm.get('name')?.touched) {
+            <span class="field-error">{{ getFirstError('name') }}</span>
+          }
         </div>
 
         <div class="form-group">
@@ -21,6 +24,9 @@
           <div class="input-wrapper">
             <input id="email" type="email" placeholder="EMAIL@EXEMPLO.COM" formControlName="email" />
           </div>
+          @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+            <span class="field-error">{{ getFirstError('email') }}</span>
+          }
         </div>
       </div>
 
@@ -28,12 +34,15 @@
         <label for="perfil">SELEÇÃO DE PERFIL</label>
         <div class="input-wrapper">
           <select id="perfil" formControlName="profile">
-            <option value="0">00 - OPERADOR</option>
-            <option value="1">01 - RESPONSÁVEL</option>
-            <option value="2">02 - GESTOR</option>
+            <option value="0">OPERADOR</option>
+            <option value="1">RESPONSÁVEL</option>
+            <option value="2">GESTOR</option>
           </select>
           <span class="material-symbols-outlined select-icon"> expand_more </span>
         </div>
+        @if (registerForm.get('profile')?.invalid && registerForm.get('profile')?.touched) {
+          <span class="field-error">{{ getFirstError('profile') }}</span>
+        }
       </div>
 
       <div class="form-group">
@@ -41,6 +50,9 @@
         <div class="input-wrapper">
           <input id="senha" type="password" placeholder="•••••••••" formControlName="password" />
         </div>
+        @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
+          <span class="field-error">{{ getFirstError('password') }}</span>
+        }
       </div>
 
       <div class="form-group">
@@ -48,6 +60,9 @@
         <div class="input-wrapper">
           <input id="confirmar-senha" type="password" placeholder="•••••••••" formControlName="passwordConfirm" />
         </div>
+        @if (registerForm.get('passwordConfirm')?.touched && registerForm.errors?.['passwordMismatch']) {
+          <span class="field-error">As senhas não coincidem</span>
+        }
       </div>
 
       <button type="submit" class="register-button primary-button" [disabled]="registerForm.invalid || isSubmitting">

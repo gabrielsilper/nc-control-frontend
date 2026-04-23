@@ -25,3 +25,27 @@
     font-size: 14px;
     font-family: inherit;
 }
+
+.optional-label {
+    font-size: 0.7rem;
+    font-weight: 400;
+    opacity: 0.55;
+    text-transform: lowercase;
+    letter-spacing: 0;
+}
+
+.field-error {
+    display: block;
+    color: #ef4444;
+    font-size: 0.72rem;
+    margin-top: 4px;
+    letter-spacing: 0.02em;
+}
+
+button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    background-color: #4b5563 !important;
+    filter: grayscale(70%);
+    transform: none !important;
+}

@@ -4,7 +4,13 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { UserService } from '../../core/services/user-service';
 import { Profile } from '../../core/models/user.model';
-import { passwordMatchValidator } from '../../core/validators/custom-validators';
+import {
+  emailFormatValidator,
+  nameValidator,
+  passwordComplexityValidator,
+  passwordMatchValidator,
+  profileEnumValidator,
+} from '../../core/validators/custom-validators';
 
 @Component({
   selector: 'app-register',
@@ -19,16 +25,32 @@ export class Register {
 
   registerForm: FormGroup = this.fb.group(
     {
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      name: ['', [Validators.required, nameValidator()]],
+      email: ['', [Validators.required, emailFormatValidator()]],
+      password: ['', [Validators.required, passwordComplexityValidator()]],
       passwordConfirm: ['', Validators.required],
-      profile: ['0', Validators.required],
+      profile: ['0', [Validators.required, profileEnumValidator()]],
     },
     { validators: passwordMatchValidator }
   );
 
   isSubmitting = false;
+
+  getFirstError(field: string): string | null {
+    const control = this.registerForm.get(field);
+    if (!control || !control.errors) return null;
+    const errors = control.errors;
+    if (errors['required']) return 'Campo obrigatório';
+    if (errors['nameMinLength']) return errors['nameMinLength'];
+    if (errors['nameMaxLength']) return errors['nameMaxLength'];
+    if (errors['nameLettersOnly']) return errors['nameLettersOnly'];
+    if (errors['emailFormat']) return errors['emailFormat'];
+    if (errors['passwordMinLength']) return errors['passwordMinLength'];
+    if (errors['passwordMaxLength']) return errors['passwordMaxLength'];
+    if (errors['passwordComplexity']) return errors['passwordComplexity'];
+    if (errors['profileEnum']) return errors['profileEnum'];
+    return null;
+  }
 
   onRegister(): void {
     if (!this.registerForm.valid) {

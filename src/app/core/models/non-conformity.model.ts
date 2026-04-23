@@ -21,6 +21,18 @@ export enum TypeNc {
   OUTRO,
 }
 
+export type NonConformityCreateRequest = {
+  number: string;
+  title: string;
+  description: string;
+  type: TypeNc;
+  severity: SeverityNc;
+  processLine: string;
+  department: string;
+  rootCause?: string;
+  assignedToId?: string;
+};
+
 export type NonConformityResponse = {
   id: string;
   number: string;

@@ -7,92 +7,110 @@
       </div>
     </header>
 
-    <form class="register-form">
-      <!-- Linha 1: NÚMERO + LINHA DE PROCESSO -->
+    <form class="register-form" [formGroup]="ncForm" (ngSubmit)="onSubmit()">
       <div class="form-row">
         <div class="form-group">
           <label for="numero">NÚMERO</label>
           <div class="input-wrapper">
-            <input type="text" id="numero" placeholder="NC-0000-000000">
+            <input type="text" id="numero" placeholder="NC-0000-000000" formControlName="number" />
           </div>
+          @if (ncForm.get('number')?.invalid && ncForm.get('number')?.touched) {
+            <span class="field-error">{{ getFirstError('number') }}</span>
+          }
         </div>
         <div class="form-group">
           <label for="processLine">LINHA DE PROCESSO</label>
           <div class="input-wrapper">
-            <input type="text" id="processLine" placeholder="LINHA X">
+            <input type="text" id="processLine" placeholder="LINHA X" formControlName="processLine" />
           </div>
+          @if (ncForm.get('processLine')?.invalid && ncForm.get('processLine')?.touched) {
+            <span class="field-error">{{ getFirstError('processLine') }}</span>
+          }
         </div>
       </div>
 
       <div class="form-group">
         <label for="title">TÍTULO</label>
         <div class="input-wrapper">
-          <input type="text" id="title" placeholder="Digite o título da não conformidade">
+          <input type="text" id="title" placeholder="Digite o título da não conformidade" formControlName="title" />
         </div>
+        @if (ncForm.get('title')?.invalid && ncForm.get('title')?.touched) {
+          <span class="field-error">{{ getFirstError('title') }}</span>
+        }
       </div>
 
       <div class="form-group">
         <label for="description">DESCRIÇÃO</label>
         <div class="input-wrapper">
-          <textarea id="description" rows="3" placeholder="Descreva detalhadamente a não conformidade"></textarea>
+          <textarea id="description" rows="3" placeholder="Descreva detalhadamente a não conformidade" formControlName="description"></textarea>
         </div>
+        @if (ncForm.get('description')?.invalid && ncForm.get('description')?.touched) {
+          <span class="field-error">{{ getFirstError('description') }}</span>
+        }
       </div>
 
-      <!-- Linha 2: TIPO + SEVERIDADE -->
       <div class="form-row">
         <div class="form-group">
           <label for="type">TIPO</label>
           <div class="input-wrapper select-wrapper">
-            <select id="type">
-              <option value="PRODUTO">PRODUTO</option>
-              <option value="PROCESSO">PROCESSO</option>
-              <option value="MATERIAL">MATERIAL</option>
-              <option value="SEGURANÇA">SEGURANÇA</option>
-              <option value="OUTRO">OUTRO</option>
+            <select id="type" formControlName="type">
+              @for (opt of typeOptions; track opt.value) {
+                <option [value]="opt.value">{{ opt.label }}</option>
+              }
             </select>
             <span class="material-symbols-outlined select-icon">expand_more</span>
           </div>
+          @if (ncForm.get('type')?.invalid && ncForm.get('type')?.touched) {
+            <span class="field-error">{{ getFirstError('type') }}</span>
+          }
         </div>
         <div class="form-group">
           <label for="severity">SEVERIDADE</label>
           <div class="input-wrapper select-wrapper">
-            <select id="severity">
-              <option value="BAIXA">BAIXA</option>
-              <option value="MÉDIA">MÉDIA</option>
-              <option value="ALTA">ALTA</option>
-              <option value="CRÍTICA">CRÍTICA</option>
+            <select id="severity" formControlName="severity">
+              @for (opt of severityOptions; track opt.value) {
+                <option [value]="opt.value">{{ opt.label }}</option>
+              }
             </select>
             <span class="material-symbols-outlined select-icon">expand_more</span>
           </div>
+          @if (ncForm.get('severity')?.invalid && ncForm.get('severity')?.touched) {
+            <span class="field-error">{{ getFirstError('severity') }}</span>
+          }
         </div>
       </div>
-
-      <!-- Linha 3: DEPARTAMENTO + ASSOCIADO A -->
       <div class="form-row">
         <div class="form-group">
           <label for="department">DEPARTAMENTO</label>
           <div class="input-wrapper">
-            <input type="text" id="department" placeholder="Ex: Qualidade, Produção, Logística">
+            <input type="text" id="department" placeholder="Ex: Qualidade, Produção, Logística" formControlName="department" />
           </div>
+          @if (ncForm.get('department')?.invalid && ncForm.get('department')?.touched) {
+            <span class="field-error">{{ getFirstError('department') }}</span>
+          }
         </div>
         <div class="form-group">
           <label for="assignedTo">ASSOCIADO A (UUID)</label>
           <div class="input-wrapper">
-            <input type="text" id="assignedTo" placeholder="Opcional - UUID do responsável">
+            <input type="text" id="assignedTo" placeholder="Opcional - UUID do responsável" formControlName="assignedToId" />
           </div>
+          @if (ncForm.get('assignedToId')?.invalid && ncForm.get('assignedToId')?.touched) {
+            <span class="field-error">{{ getFirstError('assignedToId') }}</span>
+          }
         </div>
       </div>
 
-      <!-- CAUSA RAIZ (linha inteira, opcional) -->
       <div class="form-group">
-        <label for="rootCause">CAUSA RAIZ</label>
+        <label for="rootCause">CAUSA RAIZ <span class="optional-label">(opcional)</span></label>
         <div class="input-wrapper">
-          <input type="text" id="rootCause" placeholder="Opcional - Investigação inicial">
+          <input type="text" id="rootCause" placeholder="Investigação inicial" formControlName="rootCause" />
         </div>
+        @if (ncForm.get('rootCause')?.invalid && ncForm.get('rootCause')?.touched) {
+          <span class="field-error">{{ getFirstError('rootCause') }}</span>
+        }
       </div>
 
-      <!-- BOTÃO -->
-      <button type="submit" class="register-button primary-button">
+      <button type="submit" class="register-button primary-button" [disabled]="ncForm.invalid || isSubmitting">
         CADASTRAR NÃO CONFORMIDADE
         <span class="material-symbols-outlined">add</span>
       </button>
